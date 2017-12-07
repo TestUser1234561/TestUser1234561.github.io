@@ -28,8 +28,8 @@ stumbled upon a very useful gem called
 [Mechanize](https://github.com/sparklemotion/mechanize).
 
 Mechanize is built on top of Nokogiri so implementing the new gem for scraping
-was surprisingly simple, just switch `Nokogiri::HTML(open(url)) ` to
-`Mechanize.new ` and load the page with `mech.get(url) ` . Once done your
+was surprisingly simple, just switch `Nokogiri::HTML(open(url))` to
+`Mechanize.new` and load the page with `mech.get(url)` . Once done your
 original Nokogiri code will work exactly the same! Now to the useful stuff,
 Mechanize adds many extra features that are useful for scraping, like link
 following and form submission, but what we need here is the cookie saving a
@@ -38,7 +38,7 @@ loading feature.
 All we need to do now is add in our custom cookies to get past these pesky
 verification pages. Since there isn’t much documentation on the cookie feature
 or how to write the file that the cookie method loads I found the best way was
-to simply load a page and use the `cookie_jar.save ` method that will simply save
+to simply load a page and use the `cookie_jar.save` method that will simply save
 a YAML file with any generated cookies inside of it.
 
 After inspecting the file, we can simply add the cookies that we see load when
