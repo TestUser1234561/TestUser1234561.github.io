@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Crawling through secure content"
-date:       2017-12-06 23:46:23 +0000
+date:       2017-12-06 18:46:24 -0500
 permalink:  crawling_through_secure_content
 ---
 
@@ -29,7 +29,7 @@ stumbled upon a very useful gem called
 
 Mechanize is built on top of Nokogiri so implementing the new gem for scraping
 was surprisingly simple, just switch `Nokogiri::HTML(open(url)) ` to
-`Mechanize.new ` and load the page with `mech.get(url) ` after that all your
+`Mechanize.new ` and load the page with `mech.get(url) ` . Once done your
 original Nokogiri code will work exactly the same! Now to the useful stuff,
 Mechanize adds many extra features that are useful for scraping, like link
 following and form submission, but what we need here is the cookie saving a
