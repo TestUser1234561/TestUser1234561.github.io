@@ -2,7 +2,7 @@
 title: Blog
 header-img: img/home-bg.png
 email: mfudge92@gmail.com
-copyright_name: TestUser1234561
+copyright_name: Morgan Fudge
 description: > # this means to ignore newlines until "baseurl:"
   blog?
 baseurl: "" # the subpath of your site, e.g. /blog
