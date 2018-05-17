@@ -1,0 +1,62 @@
+---
+layout: post
+title:      "Let Vs. Var"
+date:       2018-05-17 13:06:31 +0000
+permalink:  let_vs_var
+---
+
+
+The differences between let and var are substantial when you know how the
+two operate. You might think they are interchangeable and `let`
+was just an es6 binding for `var`, but theses two are very different beasts.
+
+## Var
+`Var` was the original variable declaration statement in JavaScript, used for years.
+The think to know is that `var` declarations are processed before any other code is
+executed and a ‘hoisted’ to the closest function scope. An effective way to visualize this is with a
+simple for loop that stores an array of functions with a reference to our iterator.
+
+```
+var arr = []
+for(var i = 0; i < 10; i++) {
+  arr.push(function() { return i; });
+}
+```
+If we try executing the code above one might think that the output of each
+function would be a list of numbers from 0 to 9, however if we do execute
+this what happens is each function will return the last integer stored,
+in this case 10. If we think about how the code will work after the script executes
+the iterator variable declaration will be hoisted to the top of our function, giving us these
+results.
+
+## Let
+`Let` is a new keyword in the ES6 syntax. Unlike `var` `let` does not hoist
+itself to the top of the function scope, however it is limited to block,
+statement, or expression scope. If we run the same code above, but replace
+`for(var i = 0; i < 10; i++)` with `for(let i = 0; i < 10; i++)` our output changes drastically.
+Instead of getting 10 for each function call we now get 0 to 9 in order of each function declaration!
+
+For a comparison of both we you can try executing the code below:
+
+
+```
+var arr1 = [], arr2 = []
+
+for(var i = 0; i < 10; i++) {
+  arr1.push(function() { return i; });
+}
+for(let i = 0; i < 10; i++) {
+  arr2.push(function() { return i; });
+}
+
+console.log(arr1.map((f) => { return f() }), arr2.map((f) => { return f() }))
+```
+
+## Conclusion
+Stay away from `var`. The results of your code can change drastically by
+simply interchanging these two keywords. It’s simpler to stick with `let`.
+
+#### References
+[MDN Let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
+
+[MDN Var](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
